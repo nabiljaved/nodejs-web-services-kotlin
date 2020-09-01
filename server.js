@@ -8,6 +8,8 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+const port = 3000
+
 //Arbitrary ID manager since we don't use a database
 var index = 5;
 
@@ -112,10 +114,11 @@ app.delete('/destination/:id', function (req, res) {
 app.get('/', (req, res) => res.send('Welcome! You are all set to go!'))
 
 // Configure server 
-var server = app.listen(9000, '127.0.0.1', function (req, res) {
+var server = app.listen(port, function (req, res) {
 
     var host = server.address().address
     var port = server.address().port
 
-    console.log(`Server running at http://${host}:${port}/`);
+    // console.log(`Server running at http://${host}:${port}/`);
+    console.log(`server running at port : ${port}`)
 })
